@@ -1,0 +1,29 @@
+body {
+background-color: gainsboro;
+}
+h1 {
+color: black;
+font-size: 250%;
+}
+p1 {
+color: black;
+font-size: 150%;
+}
+p2 {
+color: dimgray;
+font-size: 125%;
+}
+p3 {
+color: slategray;
+font-size: 105%;
+}
+.topnav a {
+float: left;
+display: block;
+background-color: darkgray;
+text-align: center;
+padding: 14px;
+}
+.active {
+background-color: powderblue;
+}
