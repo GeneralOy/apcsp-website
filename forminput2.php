@@ -1,23 +1,24 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>Form Input 2</title>
+  <link rel="stylesheet" href="styles.css">
+  <title>Binary to Decimal</title>
   </head>
 
 
   <body>
 
-    <h1>Form Input 2</h1>
-    <p>Demo of how to take form input and pass it to a C program - all in a single page</p>
+    <h1>Binary to Decimal</h1>
 
     <?php
        // define variables and set to empty values
        $arg1 = $arg2 = $output = $retc = "";
 
        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-         $arg1 = test_input($_POST["arg1"]);
-         $arg2 = test_input($_POST["arg2"]);
-         exec("/usr/lib/cgi-bin/pi/argtest2 " . $arg1 . " " . $arg2, $output, $retc); 
+         $arg1 = test_input($_POST["Decimal"]);
+         $arg2 = test_input($_POST["Binary"]);
+         exec("/usr/lib/cgi-bin/pi/decToBin " . $arg1 . " " . $arg2, $output, $retc); 
        }
 
        function test_input($data) {
@@ -29,19 +30,19 @@
     ?>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-      Arg1: <input type="text" name="arg1"><br>
-      Arg2: <input type="text" name="arg2"><br>
+      Input: <input type="text" name="arg1"><br>
+      Decimal or Binary? 0 for decimal and 1 for binary: <input type="text" name="arg2"><br>
       <input type="submit">
     </form>
 
     <?php
-       echo "<h2>Your Input:</h2>";
+       echo "<h2>Your input:</h2>";
        echo $arg1;
        echo "<br>";
        echo $arg2;
        echo "<br>";
        
-       echo "<h2>C Program Output (an array):</h2>";
+       echo "<h2>C Program Output:</h2>";
        foreach ($output as $line) {
          echo $line;
          echo "<br>";
