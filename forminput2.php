@@ -16,9 +16,9 @@
        $arg1 = $arg2 = $output = $retc = "";
 
        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-         $arg1 = test_input($_POST["Decimal"]);
-         $arg2 = test_input($_POST["Binary"]);
-         exec("/usr/lib/cgi-bin/pi/binToDec " . $arg1 . " " . $arg2, $output, $retc); 
+         $arg1 = test_input($_POST["arg1"]);
+         $arg2 = test_input($_POST["arg2"]);
+         exec("/usr/lib/cgi-bin/student3/binToDec " . $arg1 . " " . $arg2, $output, $retc); 
        }
 
        function test_input($data) {
@@ -31,7 +31,7 @@
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
       Input: <input type="text" name="arg1"><br>
-      Decimal or Binary? 0 for decimal and 1 for binary: <input type="text" name="arg2"><br>
+      Decimal or Binary? 0 for decimal to binary and 1 for binary to decimal: <input type="text" name="arg2"><br>
       <input type="submit">
     </form>
 
